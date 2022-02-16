@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="registerPane" prefHeight="947.0" prefWidth="1165.0" styleClass="transparent" stylesheets="@../css/style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox alignment="CENTER" layoutX="51.0" layoutY="94.0" prefHeight="858.0" prefWidth="1072.0" stylesheets="@../css/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="61.0" AnchorPane.topAnchor="94.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="843.0" prefWidth="389.0" style="-fx-background-color: white;" stylesheets="@../css/style.css">
+               <children>
+                  <ImageView fx:id="adminphoto" fitHeight="580.0" fitWidth="400.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow">
+                     <image>
+                        <Image url="@../images/admin_logo.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </ImageView>
+               </children>
+               <styleClass>
+                  <String fx:value="shadow" />
+                  <String fx:value="frameimage" />
+               </styleClass>
+            </VBox>
+            <VBox prefHeight="820.0" prefWidth="634.0" style="-fx-background-color: white; -fx-background-radius: 15;" stylesheets="@../css/style.css">
+               <children>
+                  <HBox prefHeight="56.0" prefWidth="603.0">
+                     <children>
+                        <Label prefHeight="39.0" prefWidth="193.0" text="𝐑𝐞𝐠𝐢𝐬𝐭𝐫𝐚𝐭𝐢𝐨𝐧">
+                           <HBox.margin>
+                              <Insets top="10.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="27.0" />
+                           </font></Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="30.0" top="20.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="60.0" prefWidth="560.0">
+                     <children>
+                        <JFXTextField fx:id="userName_txf" focusColor="#0439d6" labelFloat="true" prefHeight="39.0" prefWidth="262.0" promptText="𝙴𝚗𝚝𝚎𝚛 𝚈𝚘𝚞𝚛 𝙽𝚊𝚖𝚎">
+                           <HBox.margin>
+                              <Insets top="20.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="22.0" />
+                           </font></JFXTextField>
+                        <HBox prefHeight="39.0" prefWidth="225.0" stylesheets="@../css/style.css">
+                           <children>
+                              <ImageView fx:id="imageView" fitHeight="78.0" fitWidth="73.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../images/user.png" />
+                                 </image>
+                                 <HBox.margin>
+                                    <Insets bottom="5.0" left="20.0" top="7.0" />
+                                 </HBox.margin>
+                                 <styleClass>
+                                    <String fx:value="frameimage" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                              </ImageView>
+                              <Button fx:id="btn_browse" mnemonicParsing="false" prefHeight="41.0" prefWidth="79.0" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-background-color: #A2F340;" text="browse">
+                                 <HBox.margin>
+                                    <Insets left="15.0" top="25.0" />
+                                 </HBox.margin>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <styleClass>
+                                    <String fx:value="Button" />
+                                    <String fx:value="shadow" />
+                                 </styleClass>
+                              </Button>
+                           </children>
+                           <HBox.margin>
+                              <Insets left="70.0" />
+                           </HBox.margin>
+                        </HBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="30.0" top="20.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <Label fx:id="errorName" alignment="CENTER" prefHeight="21.0" prefWidth="288.0" textFill="RED">
+                     <VBox.margin>
+                        <Insets bottom="3.0" left="25.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <HBox alignment="CENTER" prefHeight="54.0" prefWidth="604.0">
+                     <children>
+                        <JFXTextField fx:id="userEmail_txf" focusColor="#0439d6" labelFloat="true" prefHeight="39.0" prefWidth="262.0" promptText="𝙴𝚗𝚝𝚎𝚛 𝚈𝚘𝚞𝚛 𝙴𝚖𝚊𝚒𝚕">
+                           <HBox.margin>
+                              <Insets top="20.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="22.0" />
+                           </font></JFXTextField>
+                        <JFXTextField fx:id="userPhone_txf" focusColor="#0439d6" labelFloat="true" layoutX="10.0" layoutY="10.0" prefHeight="48.0" prefWidth="269.0" promptText="𝙴𝚗𝚝𝚎𝚛 𝚈𝚘𝚞𝚛 𝙿𝚑𝚘𝚗𝚎 𝙽𝚞𝚖𝚋𝚎𝚛" unFocusColor="BLACK">
+                           <HBox.margin>
+                              <Insets left="50.0" top="20.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                        </JFXTextField>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="30.0" top="20.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="39.0" prefWidth="629.0">
+                     <children>
+                        <Label fx:id="errorEmail" alignment="CENTER" prefHeight="27.0" prefWidth="270.0" textFill="RED">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="3.0" left="25.0" top="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label fx:id="errorPhone" alignment="CENTER" prefHeight="27.0" prefWidth="272.0" textFill="RED">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="3.0" left="45.0" top="10.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="10.0" layoutY="166.0" prefHeight="79.0" prefWidth="568.0">
+                     <children>
+                        <JFXTextField fx:id="userNRC_txf" focusColor="#0439d6" labelFloat="true" prefHeight="39.0" prefWidth="262.0" promptText="𝙴𝚗𝚝𝚎𝚛 𝚈𝚘𝚞𝚛 𝙽𝚁𝙲 𝙽𝚘">
+                           <HBox.margin>
+                              <Insets top="20.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="22.0" />
+                           </font></JFXTextField>
+                        <JFXTextField fx:id="userCity_txf" focusColor="#0439d6" labelFloat="true" layoutX="10.0" layoutY="10.0" prefHeight="39.0" prefWidth="263.0" promptText="𝙴𝚗𝚝𝚎𝚛 𝚈𝚘𝚞𝚛 𝙲𝚒𝚝𝚢" unFocusColor="BLACK">
+                           <HBox.margin>
+                              <Insets left="50.0" top="20.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </JFXTextField>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="30.0" top="20.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="10.0" layoutY="320.0" prefHeight="39.0" prefWidth="629.0">
+                     <children>
+                        <Label fx:id="errorNRC" alignment="CENTER" prefHeight="27.0" prefWidth="269.0" textFill="RED">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="3.0" left="25.0" top="10.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label fx:id="errorCity" alignment="CENTER" prefHeight="27.0" prefWidth="261.0" textFill="RED">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="3.0" left="40.0" top="10.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="10.0" layoutY="266.0" prefHeight="81.0" prefWidth="568.0">
+                     <children>
+                        <JFXPasswordField fx:id="userPassword_txf" focusColor="#0439d6" labelFloat="true" prefHeight="39.0" prefWidth="262.0" promptText="𝙴𝚗𝚝𝚎𝚛 𝚈𝚘𝚞𝚛 𝙿𝚊𝚜𝚜𝚠𝚘𝚛𝚍">
+                           <HBox.margin>
+                              <Insets top="20.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </JFXPasswordField>
+                        <JFXPasswordField fx:id="userCon_Pwd_txf" focusColor="#0439d6" labelFloat="true" layoutX="10.0" layoutY="30.0" prefHeight="48.0" prefWidth="278.0" promptText="Enter Your Confirm Password">
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="50.0" top="20.0" />
+                           </HBox.margin>
+                        </JFXPasswordField>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="30.0" top="20.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER" layoutX="10.0" layoutY="458.0" prefHeight="39.0" prefWidth="629.0">
+                     <children>
+                        <Label fx:id="errorPwd" alignment="CENTER" layoutX="35.0" layoutY="20.0" prefHeight="27.0" prefWidth="360.0" textFill="RED">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="3.0" left="25.0" top="10.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox prefHeight="64.0" prefWidth="599.0">
+                     <children>
+                        <JFXRadioButton fx:id="radioMale" text="𝐌𝐚𝐥𝐞">
+                           <HBox.margin>
+                              <Insets top="20.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="22.0" />
+                           </font></JFXRadioButton>
+                        <JFXRadioButton fx:id="radioFemale" layoutX="10.0" layoutY="10.0" text="𝐅𝐞𝐦𝐚𝐥𝐞">
+                           <HBox.margin>
+                              <Insets left="50.0" top="20.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font size="22.0" />
+                           </font></JFXRadioButton>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="30.0" top="20.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox prefHeight="65.0" prefWidth="567.0">
+                     <children>
+                        <JFXButton fx:id="btnCancel" prefHeight="45.0" prefWidth="113.0" ripplerFill="#dd390b" style="-fx-background-color: #F5EB20;" stylesheets="@../css/style.css" text="𝐂𝐚𝐧𝐜𝐞𝐥">
+                           <HBox.margin>
+                              <Insets left="270.0" top="10.0" />
+                           </HBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                           <styleClass>
+                              <String fx:value="Button" />
+                              <String fx:value="shadow" />
+                           </styleClass></JFXButton>
+                        <JFXButton fx:id="btnRegister" layoutX="10.0" layoutY="10.0" prefHeight="45.0" prefWidth="119.0" ripplerFill="#0fd976" style="-fx-background-color: #27CDF4;" stylesheets="@../css/style.css" text="𝐑𝐞𝐠𝐢𝐬𝐭𝐞𝐫">
+                           <HBox.margin>
+                              <Insets left="40.0" top="10.0" />
+                           </HBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <font>
+                              <Font size="21.0" />
+                           </font>
+                           <styleClass>
+                              <String fx:value="Button" />
+                              <String fx:value="shadow" />
+                           </styleClass></JFXButton>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="10.0" left="31.0" top="50.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin>
+            </VBox>
+         </children>
+         <padding>
+            <Insets bottom="50.0" />
+         </padding>
+      </HBox>
+      <Label alignment="CENTER" layoutX="224.0" layoutY="14.0" prefHeight="36.0" prefWidth="661.0" text="𝓖𝓸 𝓖𝓸 𝓐𝓹𝓹𝓵𝓲𝓬𝓪𝓽𝓲𝓸𝓷" textAlignment="CENTER" textFill="#094e57" AnchorPane.leftAnchor="224.0" AnchorPane.rightAnchor="224.0" AnchorPane.topAnchor="30.0">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

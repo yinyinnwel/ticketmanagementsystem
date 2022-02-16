@@ -1,0 +1,12 @@
+/fxml
+/fxml/adminAirLine.fxml
+/fxml/adminBusLine.fxml
+/fxml/adminBusNameAdd.fxml
+/fxml/adminDashboard.fxml
+/fxml/adminLogin.fxml
+/fxml/adminRegister.fxml
+/fxml/adminRegisterView.fxml
+/fxml/sellerRegisterView.fxml
+/fxml/userBusBooking.fxml
+/fxml/userDashboard.fxml
+/fxml/userLogin.fxml

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="adminDashboardPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="789.0" prefWidth="1279.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane prefHeight="789.0" prefWidth="1285.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <HBox prefHeight="73.0" prefWidth="1279.0" styleClass="lightColor" stylesheets="@../css/style.css" BorderPane.alignment="CENTER">
+               <children>
+                  <Label prefHeight="58.0" prefWidth="196.0" text="🅖🅞 🅖🅞" textFill="#2d1abf">
+                     <HBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="40.0" />
+                     </font></Label>
+                  <StackPane fx:id="stackPane" prefHeight="55.0" prefWidth="65.0">
+                     <children>
+                        <ImageView fx:id="menuList" fitHeight="45.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <image>
+                              <Image url="@../images/icons8-menu-60.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fx:id="menuClose" fitHeight="45.0" fitWidth="48.0" layoutX="20.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                           <image>
+                              <Image url="@../images/icons8-menu-60.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </StackPane>
+               </children>
+            </HBox>
+         </top>
+         <left>
+            <VBox fx:id="slider" alignment="CENTER" prefHeight="716.0" prefWidth="235.0" stylesheets="@../css/style.css" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox fx:id="adminPhoto" prefHeight="107.0" prefWidth="223.0" stylesheets="@../css/style.css">
+                     <VBox.margin>
+                        <Insets top="5.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0" stylesheets="@../css/style.css">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <children>
+                        <JFXButton fx:id="btn_admin" alignment="CENTER" prefHeight="100.0" prefWidth="235.0" ripplerFill="#76b7f8" stylesheets="@../css/style.css" text="𝐀𝐝𝐦𝐢𝐧" textAlignment="CENTER">
+                           <graphic>
+                              <ImageView fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow">
+                                 <image>
+                                    <Image url="@../images/icons8-admin-settings-male-80.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                           <styleClass>
+                              <String fx:value="shadow" />
+                              <String fx:value="Button" />
+                              <String fx:value="sidebarItem" />
+                           </styleClass>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="113.0" prefHeight="100.0" prefWidth="200.0" stylesheets="@../css/style.css">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <children>
+                        <JFXButton fx:id="btn_seller" alignment="CENTER" prefHeight="100.0" prefWidth="235.0" ripplerFill="#76b7f8" stylesheets="@../css/style.css" text="𝐒𝐞𝐥𝐥𝐞𝐫" textAlignment="CENTER">
+                           <graphic>
+                              <ImageView fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow">
+                                 <image>
+                                    <Image url="@../images/icons8-employee-64.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                           <styleClass>
+                              <String fx:value="shadow" />
+                              <String fx:value="Button" />
+                              <String fx:value="sidebarItem" />
+                           </styleClass>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="213.0" prefHeight="100.0" prefWidth="200.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <children>
+                        <JFXButton fx:id="btn_busLine" alignment="CENTER" prefHeight="100.0" prefWidth="235.0" ripplerFill="#75b9f5" stylesheets="@../css/style.css" text="𝐁𝐮𝐬𝐋𝐢𝐧𝐞" textAlignment="CENTER">
+                           <graphic>
+                              <ImageView fitHeight="65.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow">
+                                 <image>
+                                    <Image url="@../images/icons8-bus-64.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                           <styleClass>
+                              <String fx:value="Button" />
+                              <String fx:value="shadow" />
+                              <String fx:value="sidebarItem" />
+                           </styleClass>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="313.0" prefHeight="100.0" prefWidth="200.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <children>
+                        <JFXButton fx:id="btn_airLine" alignment="CENTER" prefHeight="100.0" prefWidth="235.0" ripplerFill="#76baf5" stylesheets="@../css/style.css" text="𝐀𝐢𝐫𝐋𝐢𝐧𝐞" textAlignment="CENTER">
+                           <graphic>
+                              <ImageView fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow">
+                                 <image>
+                                    <Image url="@../images/icons8-airplane-64.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font size="23.0" />
+                           </font>
+                           <styleClass>
+                              <String fx:value="Button" />
+                              <String fx:value="shadow" />
+                              <String fx:value="sidebarItem" />
+                           </styleClass>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="413.0" prefHeight="100.0" prefWidth="200.0">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <children>
+                        <JFXButton fx:id="btn_logout" alignment="CENTER" prefHeight="100.0" prefWidth="235.0" ripplerFill="#76b7f8" stylesheets="@../css/style.css" text="𝐋𝐨𝐠𝐨𝐮𝐭" textAlignment="CENTER">
+                           <graphic>
+                              <ImageView fitHeight="65.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true" styleClass="shadow">
+                                 <image>
+                                    <Image url="@../images/icons8-logout-58.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                           <styleClass>
+                              <String fx:value="Button" />
+                              <String fx:value="shadow" />
+                              <String fx:value="sidebarItem" />
+                           </styleClass>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+               </children>
+               <styleClass>
+                  <String fx:value="lightColor" />
+                  <String fx:value="transparent" />
+               </styleClass>
+            </VBox>
+         </left>
+         <center>
+            <AnchorPane fx:id="replaceAnchorPane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin></AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

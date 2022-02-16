@@ -1,0 +1,43 @@
+.frameimage{
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 30;
+}
+.transparent{
+    -fx-background-color: rgba(63, 178, 191, 0.1);
+}
+
+.shadow{
+    -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 ,10.0);
+}
+.hbox{
+    -fx-background-color:#FFFFFF;
+    -fx-background-radius: 100;
+}
+.Button{
+    -fx-background-radius: 50;
+}
+/*.uploadImg{
+       -fx-padding:5;
+       -fx-border-color:gray;
+       -fx-background-color:#ffffff;
+	    -fx-border-radius:10;
+	    -fx-background-radius:10;
+}*/
+.lightColor{
+    -fx-background-color:rgba(255,255,255,0.5);
+}
+.font-size{
+    -fx-font-size:20;
+}
+.menuItem:hover{
+    -fx-border-color: #660099;
+    -fx-border-width: 0px 0px 3px 0px;
+}
+
+.sidebarItem:hover{
+    /*-fx-background-color: #146886;*/
+    -fx-border-color: WHITE;
+    -fx-border-width: 0px 0px 0px 3px;
+}
+/*
+-fx-background-color: rgba(0,0,0,0);*/
