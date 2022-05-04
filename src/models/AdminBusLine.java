@@ -2,12 +2,14 @@ package models;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Arrays;
 
 public class AdminBusLine {
 
     public int bus_id;
     public String bus_name;
     public String bus_no;
+    public Byte[] bus_image;
     public String loc_from;
     public String loc_to;
     public LocalDate date;
@@ -20,11 +22,12 @@ public class AdminBusLine {
 
     }
 
-    public AdminBusLine(int bus_id,String bus_name,String bus_no,String loc_from,String loc_to,
+    public AdminBusLine(int bus_id,String bus_name,String bus_no,Byte[] bus_image,String loc_from,String loc_to,
                         LocalDate date,LocalTime time,int seat_qty,int seat_col,double price){
         this.bus_id = bus_id;
         this.bus_name = bus_name;
         this.bus_no = bus_no;
+        this.bus_image=bus_image;
         this.loc_from = loc_from;
         this.loc_to = loc_to;
         this.date = date;
@@ -113,5 +116,48 @@ public class AdminBusLine {
     public void setPrice(double price) {
         this.price = price;
     }
+
+        public Byte[] getBus_image() {
+        return bus_image;
+    }
+
+    public void setBus_image(Byte[] bus_image) {
+        this.bus_image = bus_image;
+    }
+
+    @Override
+    public String toString() {
+        return "AdminBusLine{" +
+                "bus_id=" + bus_id +
+                ", bus_name='" + bus_name + '\'' +
+                ", bus_no='" + bus_no + '\'' +
+                ", bus_image=" + Arrays.toString(bus_image) +
+                ", loc_from='" + loc_from + '\'' +
+                ", loc_to='" + loc_to + '\'' +
+                ", date=" + date +
+                ", time=" + time +
+                ", seat_qty=" + seat_qty +
+                ", seat_col=" + seat_col +
+                ", price=" + price +
+                '}';
+    }
+
+
+//    @Override
+//    public String toString() {
+//        return "AdminBusLine{" +
+//                "bus_id=" + bus_id +
+//                ", bus_name='" + bus_name + '\'' +
+//                ", bus_no='" + bus_no + '\'' +
+//                ", bus_image='" + bus_image + '\'' +
+//                ", loc_from='" + loc_from + '\'' +
+//                ", loc_to='" + loc_to + '\'' +
+//                ", date=" + date +
+//                ", time=" + time +
+//                ", seat_qty=" + seat_qty +
+//                ", seat_col=" + seat_col +
+//                ", price=" + price +
+//                '}';
+//    }
 }
 

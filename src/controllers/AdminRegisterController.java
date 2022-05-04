@@ -4,18 +4,23 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
+import com.kitfox.svg.A;
 import database.AdminRegister_DB;
 import javafx.animation.ScaleTransition;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.concurrent.Service;
+import javafx.concurrent.Task;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
@@ -85,7 +90,7 @@ public class AdminRegisterController implements Initializable {
     private Label errorPwd;
 
     @FXML
-    private JFXRadioButton radioMale=new JFXRadioButton("Male");
+    private JFXRadioButton radioMale;
 
     @FXML
     private JFXRadioButton radioFemale=new JFXRadioButton("Female");
@@ -108,6 +113,9 @@ public class AdminRegisterController implements Initializable {
 
     String radioGender;
 
+    ToggleGroup group=new ToggleGroup();
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         this.init();
@@ -127,13 +135,57 @@ public class AdminRegisterController implements Initializable {
         sct.setCycleCount(ScaleTransition.INDEFINITE);
         sct.play();
 
-        if(radioMale.isSelected()){
-            radioGender = "male";
-        }else {
-            radioGender = "female";
-        }
+
+        radioMale.setToggleGroup(group);
+        radioFemale.setToggleGroup(group);
+
+        radioMale.setUserData("Male");
+        radioFemale.setUserData("Female");
+
+//        if(radioMale.isSelected()){
+//            radioGender = "Male";
+//        }else {
+//            radioGender = "Female";
+//        }
+
+
+
 
     }
+
+    private  boolean checkNRC(){
+        boolean flag = false;
+        if(userNRC_txf.getText()!=null && !userNRC_txf.getText().isEmpty()){
+
+            if(userNRC_txf.getText().trim().split("N\\)")[1].length() == 6){
+                errorNRC.setText(null);
+                flag= true;
+            }else{
+                errorNRC.setText("Format is Wrong!");
+                flag= false;
+
+            }
+        }
+        return  flag;
+    }
+
+    private boolean checkPhoneNo(){
+        boolean flag=false;
+        if(userPhone_txf.getText()!=null && !userPhone_txf.getText().isEmpty()){
+
+            if(userPhone_txf.getText().length()==11 && userPhone_txf.getText().startsWith("09")){
+                errorPhone.setText(null);
+                flag=true;
+            }else {
+                errorPhone.setText("Start 09 and number length is 11");
+                flag=false;
+
+            }
+        }
+
+        return flag;
+    }
+
 
     private void binding(){
 
@@ -142,16 +194,29 @@ public class AdminRegisterController implements Initializable {
 
     private void actions(){
 
-        radioMale.selectedProperty().addListener((o1,o2,newValue)->{
-//            if(newValue){
-                radioFemale.selectedProperty().set(!newValue);
-        //    }
+//        radioMale.selectedProperty().addListener((o1,o2,newValue)->{
+////            if(newValue){
+//                radioFemale.selectedProperty().set(!newValue);
+//        //    }
+//        });
+//        radioFemale.selectedProperty().addListener((o1,o2,newValue)->{
+////            if(newValue){
+//                radioMale.selectedProperty().set(!newValue);
+//        //    }
+//        });
+
+        group.selectedToggleProperty().addListener(new ChangeListener<Toggle>(){
+            @Override
+            public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
+                if (group.getSelectedToggle() != null) {
+                    getClass().getResource(
+                            group.getSelectedToggle().getUserData().toString()
+                    );
+                }
+            }
+
         });
-        radioFemale.selectedProperty().addListener((o1,o2,newValue)->{
-//            if(newValue){
-                radioMale.selectedProperty().set(!newValue);
-        //    }
-        });
+
 
 
         userName_txf.textProperty().addListener((o1,o2,newValue)->{
@@ -182,6 +247,7 @@ public class AdminRegisterController implements Initializable {
         });
 
         userPhone_txf.textProperty().addListener((o1,o2,newValue)->{
+            restrictTextFields(userPhone_txf,newValue);
             if(newValue.isEmpty()){
                 errorPhone.setText("Your PhoneNo is required!");
             }else {
@@ -199,6 +265,34 @@ public class AdminRegisterController implements Initializable {
 
             }
         });
+
+        userPassword_txf.textProperty().addListener((o1,o2,newValue)->{
+            userCon_Pwd_txf.setDisable(newValue.isEmpty());
+            if(newValue.isEmpty()){
+                errorPwd.setText("Your Password is required!");
+            }else {
+                if(!userCon_Pwd_txf.getText().trim().equals(newValue.trim())){
+                    errorPwd.setText("Password is do not match!");
+                }else{
+                    errorPwd.setText(null);
+                }
+
+            }
+        });
+
+        userCon_Pwd_txf.textProperty().addListener((o1,o2,newValue)->{
+            if(newValue.isEmpty()){
+                errorPwd.setText("Your Confirm Password is required!");
+            }else {
+                if(!userPassword_txf.getText().trim().equals(newValue.trim())){
+                    errorPwd.setText("Password is do not match!");
+                }else{
+                    errorPwd.setText(null);
+                }
+
+            }
+        });
+
 
 
         btn_browse.setOnAction(e->{
@@ -222,68 +316,67 @@ public class AdminRegisterController implements Initializable {
             currentStage.close();
         });
 
-        btnRegister.setOnAction(e->{
-            TextField[] fields = { userName_txf, userEmail_txf, userNRC_txf, userPhone_txf, userCity_txf,
-                    userPassword_txf,userCon_Pwd_txf };
 
 
-//       //     System.out.println(checkTextfield_Empty(fields));
-//            if (checkTextfield_Empty(fields)) {
+
+        btnRegister.setOnAction(e-> {
+                    TextField[] fields = {userName_txf, userEmail_txf, userNRC_txf, userPhone_txf, userCity_txf,
+                            userPassword_txf, userCon_Pwd_txf};
+
+               //     System.out.println(checkTextfield_Empty(fields));
+
+            System.out.println(checkNRC());
+            System.out.println(checkPhoneNo());
+
+            if(!checkTextfield_Empty(fields)){
+                if(checkNRC() && checkPhoneNo() ){
+                    AdminRegister adminRegister = new AdminRegister(0, userName_txf.getText().toLowerCase(), filepath,
+                                userEmail_txf.getText(), userNRC_txf.getText(), userPhone_txf.getText(), userCity_txf.getText().toLowerCase(),
+                                userPassword_txf.getText(), group.getSelectedToggle().getUserData().toString());
+                    System.out.println(adminRegister);
+                    AdminRegister_DB.addRegister(adminRegister);
+
+                    showAlert();
+
+
+                }
+            }else{
+                new Alert(Alert.AlertType.ERROR,"Fill all Data!").show();
+               // showAlert().setContentText("fill all data!");
+            }
+
+
 //
-//                if (userPhone_txf.getText().length() == 11 && userPhone_txf.getText().startsWith("09")) {
-//
-//                    System.out.println(userPassword_txf.getText().equals(userCon_Pwd_txf.getText()));
-//                    if (userPassword_txf.getText().equals(userCon_Pwd_txf.getText())) {
+//            System.out.println(userPassword_txf.getText().equals(userCon_Pwd_txf.getText()));
+//            if (userPassword_txf.getText().equals(userCon_Pwd_txf.getText())) {
 //
 //
-//                        if (userNRC_txf.getText().split("N\\)")[1].length() >= 6) {
+//                if (userNRC_txf.getText().split("N\\)")[1].length() >= 6) {
 //
-////                            AdminRegister adminRegister = new AdminRegister(0, userName_txf.getText().toLowerCase(),filepath,
-////                                    userEmail_txf.getText(), userNRC_txf.getText(), userPhone_txf.getText(),userCity_txf.getText().toLowerCase(),
-////                                    userPassword_txf.getText(), "Male");
-////                        System.out.println(radioGender);
-////                            AdminRegister_DB.addRegister(adminRegister);
-//
-//                            new Alert(Alert.AlertType.CONFIRMATION, "Save Your Data!").showAndWait();
-//
-//
-//                            userName_txf.clear();
-//                            userEmail_txf.clear();
-//                            userCity_txf.clear();
-//                            userNRC_txf.clear();
-//                            userPhone_txf.clear();
-//                            userPassword_txf.clear();
-//                            userCon_Pwd_txf.clear();
-//                        } else {
-//
-//                        }
-//
-//                    } else {
-//                        //  new Alert(Alert.AlertType.WARNING, "Do not match with pre_password!").showAndWait();
-//                        errorPwd.setText("Do not match with pre_password!");
-//                    }
-//
-//                } else {
-//
+//                    AdminRegister adminRegister = new AdminRegister(0, userName_txf.getText().toLowerCase(), filepath,
+//                            userEmail_txf.getText(), userNRC_txf.getText(), userPhone_txf.getText(), userCity_txf.getText().toLowerCase(),
+//                            userPassword_txf.getText(), group.getSelectedToggle().getUserData().toString());
+//                    System.out.println(adminRegister);
+//                    AdminRegister_DB.addRegister(adminRegister);
 //                }
-//
-//            } else {
-//                new Alert(Alert.AlertType.ERROR, "Please fill your data").showAndWait();
-//
 //            }
 
-            AdminLoginController adminLoginController=new AdminLoginController();
-            Parent parent= ___Bundle.__ViewLoader._getInstance()._load("adminLogin",adminLoginController);
-            Stage stage=new Stage();
-            stage.setScene(new Scene(parent));
-            stage.initModality(Modality.WINDOW_MODAL);
-            stage.setTitle("Go Go Application");
-            stage.getIcons().add(new Image("images/app_logo.jpg"));
-            stage.centerOnScreen();
-            stage.setResizable(false);
-            stage.show();
-            Stage currentStage= (Stage) registerPane.getScene().getWindow();
-            currentStage.close();
+
+
+
+
+//            AdminLoginController adminLoginController=new AdminLoginController();
+//            Parent parent= ___Bundle.__ViewLoader._getInstance()._load("adminLogin",adminLoginController);
+//            Stage stage=new Stage();
+//            stage.setScene(new Scene(parent));
+//            stage.initModality(Modality.WINDOW_MODAL);
+//            stage.setTitle("Go Go Application");
+//            stage.getIcons().add(new Image("images/app_logo.jpg"));
+//            stage.centerOnScreen();
+//            stage.setResizable(false);
+//            stage.show();
+//            Stage currentStage= (Stage) registerPane.getScene().getWindow();
+//            currentStage.close();
 
         });
 
@@ -298,8 +391,57 @@ public class AdminRegisterController implements Initializable {
 //            }else {
 //                flag = true;
 //            }
-            flag = field.getText().isEmpty()? true:false;
+            flag = field.getText().isEmpty();
         }
         return flag;
+    }
+
+    private void showAlert(){
+        Alert alert=new Alert(Alert.AlertType.INFORMATION,"SuccessFul Data!");
+        alert.show();
+        Service service=new Service() {
+            @Override
+            protected Task createTask() {
+                return new Task() {
+                    @Override
+                    protected Object call() throws Exception {
+                        Thread.sleep(3000);
+                        return null;
+                    }
+                };
+            }
+        };
+        service.restart();
+        service.setOnSucceeded(event->{
+            alert.close();
+
+            AdminLoginController adminLoginController=new AdminLoginController();
+            Parent parent= ___Bundle.__ViewLoader._getInstance()._load("adminLogin",adminLoginController);
+            Stage stage=new Stage();
+            stage.setScene(new Scene(parent));
+            stage.initModality(Modality.WINDOW_MODAL);
+            stage.setTitle("Go Go Application");
+            stage.getIcons().add(new Image("images/app_logo.jpg"));
+            stage.centerOnScreen();
+            stage.setResizable(false);
+            stage.show();
+            Stage currentStage= (Stage) registerPane.getScene().getWindow();
+            currentStage.close();
+        });
+
+    }
+
+    private void restrictTextFields(TextField textField, String value) {
+        if (!value.matches("\\d*")) {
+            textField.setText(value.replaceAll("[^\\d]", ""));
+        }
+        textField.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
+            public void handle(KeyEvent event) {
+                if (event.getCode() == KeyCode.SPACE) {
+                    event.consume(); // to cancel space key
+                }
+            }
+        });
+
     }
 }

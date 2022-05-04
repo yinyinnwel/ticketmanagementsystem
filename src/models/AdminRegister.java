@@ -1,10 +1,12 @@
 package models;
 
+import java.util.Arrays;
+
 public class AdminRegister {
 
     public int rg_id;
     public String rg_name;
-    public String rg_image;
+    public Byte[] rg_image;
     public String rg_email;
     public String rg_nrc;
     public String rg_phoneNo;
@@ -12,21 +14,20 @@ public class AdminRegister {
     public String rg_password;
     public String rg_gender;
 
-    public AdminRegister(String rg_gender){
-        this.rg_gender= rg_gender;
-    }
+//    public AdminRegister(String rg_gender){
+//        this.rg_gender= rg_gender;
+//    }
 
-    public AdminRegister(int rg_id,String rg_name,String rg_image,String rg_email,String rg_nrc,
-                         String rg_phoneNo,String rg_city,String rg_password,String rg_gender){
-            this.rg_id=rg_id;
-            this.rg_name=rg_name;
-            this.rg_image=rg_image;
-            this.rg_email=rg_email;
-            this.rg_nrc=rg_nrc;
-            this.rg_phoneNo=rg_phoneNo;
-            this.rg_city=rg_city;
-            this.rg_password=rg_password;
-            this.rg_gender=rg_gender;
+    public AdminRegister(int rg_id, String rg_name, Byte[] rg_image, String rg_email, String rg_nrc, String rg_phoneNo, String rg_city, String rg_password, String rg_gender) {
+        this.rg_id = rg_id;
+        this.rg_name = rg_name;
+        this.rg_image = rg_image;
+        this.rg_email = rg_email;
+        this.rg_nrc = rg_nrc;
+        this.rg_phoneNo = rg_phoneNo;
+        this.rg_city = rg_city;
+        this.rg_password = rg_password;
+        this.rg_gender = rg_gender;
     }
 
     public int getRg_id() {
@@ -45,11 +46,11 @@ public class AdminRegister {
         this.rg_name = rg_name;
     }
 
-    public String getRg_image() {
+    public Byte[] getRg_image() {
         return rg_image;
     }
 
-    public void setRg_image(String rg_image) {
+    public void setRg_image(Byte[] rg_image) {
         this.rg_image = rg_image;
     }
 
@@ -99,5 +100,20 @@ public class AdminRegister {
 
     public void setRg_gender(String rg_gender) {
         this.rg_gender = rg_gender;
+    }
+
+    @Override
+    public String toString() {
+        return "AdminRegister{" +
+                "rg_id=" + rg_id +
+                ", rg_name='" + rg_name + '\'' +
+                ", rg_image=" + Arrays.toString(rg_image) +
+                ", rg_email='" + rg_email + '\'' +
+                ", rg_nrc='" + rg_nrc + '\'' +
+                ", rg_phoneNo='" + rg_phoneNo + '\'' +
+                ", rg_city='" + rg_city + '\'' +
+                ", rg_password='" + rg_password + '\'' +
+                ", rg_gender='" + rg_gender + '\'' +
+                '}';
     }
 }

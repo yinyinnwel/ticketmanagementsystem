@@ -96,4 +96,19 @@ public class SellerRegister {
     public void setSeller_gender(String seller_gender) {
         this.seller_gender = seller_gender;
     }
+
+    @Override
+    public String toString() {
+        return "SellerRegister{" +
+                "seller_id=" + seller_id +
+                ", seller_name='" + seller_name + '\'' +
+                ", seller_image='" + seller_image + '\'' +
+                ", seller_email='" + seller_email + '\'' +
+                ", seller_nrc='" + seller_nrc + '\'' +
+                ", seller_phoneNo='" + seller_phoneNo + '\'' +
+                ", seller_city='" + seller_city + '\'' +
+                ", seller_password='" + seller_password + '\'' +
+                ", seller_gender='" + seller_gender + '\'' +
+                '}';
+    }
 }

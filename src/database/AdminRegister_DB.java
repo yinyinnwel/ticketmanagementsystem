@@ -2,9 +2,7 @@ package database;
 
 import models.AdminRegister;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,14 +23,24 @@ public class AdminRegister_DB {
             while (rs.next()) {
 
                 Blob blob = rs.getBlob(3);
+                byte[] data=blob.getBytes(1,(int)blob.length());
+                File file=new File(rs.getString(2));
+                FileOutputStream output=new FileOutputStream(file);
+                output.write(data);
 
-                adminRegister = new AdminRegister(rs.getInt(1), rs.getString(2), blob.length() + "",rs.getString(4), rs.getString(5),
+                adminRegister = new AdminRegister(rs.getInt(1), rs.getString(2),rs.getBlob(3,new FileInputStream(file)),rs.getString(4), rs.getString(5),
                         rs.getString(6), rs.getString(7),rs.getString(8),rs.getString(9));
+
+
+
+
 
             }
             con.close();
-        } catch (SQLException e) {
+        } catch (SQLException | FileNotFoundException e) {
 
+            e.printStackTrace();
+        } catch (IOException e) {
             e.printStackTrace();
         }
         return adminRegister;
@@ -53,14 +61,20 @@ public class AdminRegister_DB {
             while (rs.next()) {
 
                 Blob blob = rs.getBlob(3);
+                byte[] data=blob.getBytes(1,(int)blob.length());
+                File file=new File(rs.getString(2));
+                FileOutputStream output=new FileOutputStream(file);
+                output.write(data);
 
-                AdminRegister register = new AdminRegister(rs.getInt(1), rs.getString(2), blob.length() + "",rs.getString(4), rs.getString(5),
-                        rs.getString(6), rs.getString(7),rs.getString(8),rs.getString(9));
+                AdminRegister register = new AdminRegister(rs.getInt(1), rs.getString(2), data,rs.getString(4),
+                        rs.getString(5), rs.getString(6), rs.getString(7),rs.getString(8),rs.getString(9));
 
                list.add(register);
             }
             con.close();
-        } catch (SQLException e) {
+        } catch (SQLException | FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
             e.printStackTrace();
         }
         return list;
@@ -81,6 +95,8 @@ public class AdminRegister_DB {
             ps.setString(7, register.getRg_city());
             ps.setString(8, register.getRg_password());
             ps.setString(9, register.getRg_gender());
+
+
             if (path != null) {
                 ps.setBlob(3, new FileInputStream(path));
             } else

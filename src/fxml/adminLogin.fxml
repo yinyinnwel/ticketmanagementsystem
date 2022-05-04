@@ -6,7 +6,6 @@
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
-<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -75,7 +74,7 @@
                                     <Insets top="3.0" />
                                  </padding>
                               </HBox>
-                              <Label fx:id="errorName" prefHeight="21.0" prefWidth="380.0" textFill="RED">
+                              <Label fx:id="errorName" alignment="CENTER" prefHeight="21.0" prefWidth="380.0" textAlignment="CENTER" textFill="RED">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
@@ -110,22 +109,16 @@
                                     <Insets top="3.0" />
                                  </VBox.margin>
                               </HBox>
-                              <Label fx:id="errorPassword" layoutX="25.0" layoutY="165.0" prefHeight="21.0" prefWidth="382.0" textFill="RED">
+                              <Label fx:id="errorPassword" alignment="CENTER" layoutX="25.0" layoutY="165.0" prefHeight="21.0" prefWidth="382.0" textAlignment="CENTER" textFill="RED">
                                  <font>
                                     <Font size="18.0" />
                                  </font>
                               </Label>
-                              <CheckBox fx:id="remember" mnemonicParsing="false" prefHeight="26.0" prefWidth="190.0" text="𝚁𝚎𝚖𝚎𝚖𝚋𝚎𝚛 𝚖𝚎">
+                              <Label fx:id="status" alignment="CENTER" layoutX="25.0" layoutY="336.0" prefHeight="21.0" prefWidth="382.0" textFill="RED">
                                  <font>
                                     <Font size="23.0" />
                                  </font>
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" />
-                                 </VBox.margin>
-                                 <padding>
-                                    <Insets top="8.0" />
-                                 </padding>
-                              </CheckBox>
+                              </Label>
                               <HBox prefHeight="44.0" prefWidth="396.0">
                                  <children>
                                     <JFXButton fx:id="btnRegister" alignment="CENTER" prefHeight="44.0" prefWidth="139.0" ripplerFill="#4568f4" style="-fx-background-color: #27CDF4;" stylesheets="@../css/style.css" text="𝐑𝐞𝐠𝐢𝐬𝐭𝐞𝐫" textAlignment="CENTER">

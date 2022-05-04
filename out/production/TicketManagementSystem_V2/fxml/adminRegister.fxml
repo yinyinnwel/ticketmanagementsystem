@@ -137,7 +137,7 @@
                               <Insets bottom="3.0" left="25.0" top="10.0" />
                            </HBox.margin>
                         </Label>
-                        <Label fx:id="errorPhone" alignment="CENTER" prefHeight="27.0" prefWidth="272.0" textFill="RED">
+                        <Label fx:id="errorPhone" alignment="CENTER" prefHeight="27.0" prefWidth="289.0" textFill="RED">
                            <font>
                               <Font size="18.0" />
                            </font>
@@ -220,12 +220,12 @@
                   </HBox>
                   <HBox alignment="CENTER" layoutX="10.0" layoutY="458.0" prefHeight="39.0" prefWidth="629.0">
                      <children>
-                        <Label fx:id="errorPwd" alignment="CENTER" layoutX="35.0" layoutY="20.0" prefHeight="27.0" prefWidth="360.0" textFill="RED">
+                        <Label fx:id="errorPwd" alignment="CENTER" layoutX="35.0" layoutY="20.0" prefHeight="27.0" textFill="RED">
                            <font>
                               <Font size="18.0" />
                            </font>
                            <HBox.margin>
-                              <Insets bottom="3.0" left="25.0" top="10.0" />
+                              <Insets bottom="3.0" left="5.0" top="10.0" />
                            </HBox.margin>
                         </Label>
                      </children>
@@ -237,22 +237,37 @@
                      <children>
                         <JFXRadioButton fx:id="radioMale" text="𝐌𝐚𝐥𝐞">
                            <HBox.margin>
-                              <Insets top="20.0" />
+                              <Insets bottom="5.0" top="15.0" />
                            </HBox.margin>
                            <font>
                               <Font size="22.0" />
                            </font></JFXRadioButton>
                         <JFXRadioButton fx:id="radioFemale" layoutX="10.0" layoutY="10.0" text="𝐅𝐞𝐦𝐚𝐥𝐞">
                            <HBox.margin>
-                              <Insets left="50.0" top="20.0" />
+                              <Insets bottom="5.0" left="50.0" top="15.0" />
                            </HBox.margin>
                            <font>
                               <Font size="22.0" />
                            </font></JFXRadioButton>
                      </children>
                      <VBox.margin>
-                        <Insets left="30.0" top="20.0" />
+                        <Insets left="30.0" />
                      </VBox.margin>
+                  </HBox>
+                  <HBox layoutX="40.0" layoutY="638.0" prefHeight="64.0" prefWidth="599.0">
+                     <VBox.margin>
+                        <Insets left="30.0" />
+                     </VBox.margin>
+                     <children>
+                        <Label fx:id="errorGender" prefHeight="27.0" prefWidth="303.0" textFill="RED">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="5.0" left="15.0" top="5.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
                   </HBox>
                   <HBox prefHeight="65.0" prefWidth="567.0">
                      <children>

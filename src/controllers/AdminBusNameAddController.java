@@ -58,5 +58,15 @@ public class AdminBusNameAddController implements Initializable {
             System.out.println("hello");
         });
 
+        btn_delete.setOnAction(e->{
+
+        });
+
+
+        btn_clear.setOnAction(e->{
+            txf_busName.setText(null);
+        });
+
+
     }
 }

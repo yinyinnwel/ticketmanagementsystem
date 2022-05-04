@@ -12,6 +12,9 @@ public class AdminAirLine {
     public LocalDate date;
     public LocalTime time;
     public LocalTime arrival_time;
+
+
+
     public int seat_qty;
     public int seat_col;
     public double price;
@@ -122,5 +125,22 @@ public class AdminAirLine {
 
     public void setAir_class(String air_class) {
         this.air_class = air_class;
+    }
+
+    @Override
+    public String toString() {
+        return "AdminAirLine{" +
+                "air_id=" + air_id +
+                ", air_name='" + air_name + '\'' +
+                ", loc_from='" + loc_from + '\'' +
+                ", loc_to='" + loc_to + '\'' +
+                ", date=" + date +
+                ", time=" + time +
+                ", arrival_time=" + arrival_time +
+                ", seat_qty=" + seat_qty +
+                ", seat_col=" + seat_col +
+                ", price=" + price +
+                ", air_class='" + air_class + '\'' +
+                '}';
     }
 }

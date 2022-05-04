@@ -454,7 +454,7 @@
                 <Insets top="3.0" />
             </padding>
         </VBox>
-        <ScrollPane fitToHeight="true" fitToWidth="true" layoutX="653.0" layoutY="100.0" prefHeight="809.0" prefWidth="612.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="653.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+        <ScrollPane fitToHeight="true" fitToWidth="true" layoutX="653.0" layoutY="100.0" prefHeight="809.0" prefWidth="612.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="653.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="100.0">
             <padding>
                 <Insets top="3.0" />
             </padding>

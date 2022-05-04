@@ -4,6 +4,10 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXTimePicker;
+import database.AdminBusLine_DB;
+import database.AdminRegister_DB;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
@@ -17,9 +21,12 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import models.AdminBusLine;
+import models.AdminRegister;
 import product_out.___Bundle;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class AdminBusLineController implements Initializable {
@@ -37,7 +44,7 @@ public class AdminBusLineController implements Initializable {
     private DatePicker searchDate;
 
     @FXML
-    private ComboBox<?> combo_busName;
+    private ComboBox<String> combo_busName;
 
     @FXML
     private Label label_busNameAdd;
@@ -150,6 +157,9 @@ public class AdminBusLineController implements Initializable {
     @FXML
     private TableColumn<?, ?> col_price;
 
+    ArrayList<AdminBusLine> adminBusLineArrayList = (ArrayList<AdminBusLine>) AdminBusLine_DB.getAdminBusLists();
+    ObservableList<AdminBusLine> oblist = FXCollections.observableArrayList(adminBusLineArrayList);
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -163,6 +173,9 @@ public class AdminBusLineController implements Initializable {
     }
 
     private void prepare(){
+
+//        oblist.add();
+//        combo_busName.setItems(oblist);
 
     }
     private void binding(){
