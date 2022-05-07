@@ -211,6 +211,7 @@ public class AdminRegisterViewController implements Initializable {
             }
         });
         col_image.setCellValueFactory(new PropertyValueFactory<AdminRegister, byte[]>("rg_image"));
+        col_image.setPrefWidth(100);
         col_email.setCellValueFactory(new PropertyValueFactory<AdminRegister,String>("rg_email"));
         col_nrcNo.setCellValueFactory(new PropertyValueFactory<AdminRegister, String>("rg_nrc"));
         col_phone.setCellValueFactory(new PropertyValueFactory<AdminRegister, String>("rg_phoneNo"));

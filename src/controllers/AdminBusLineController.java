@@ -4,7 +4,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXTimePicker;
-import database.AdminBusLine_DB;
+//import database.AdminBusLine_DB;
 import database.AdminRegister_DB;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -157,8 +157,8 @@ public class AdminBusLineController implements Initializable {
     @FXML
     private TableColumn<?, ?> col_price;
 
-    ArrayList<AdminBusLine> adminBusLineArrayList = (ArrayList<AdminBusLine>) AdminBusLine_DB.getAdminBusLists();
-    ObservableList<AdminBusLine> oblist = FXCollections.observableArrayList(adminBusLineArrayList);
+//    ArrayList<AdminBusLine> adminBusLineArrayList = (ArrayList<AdminBusLine>) AdminBusLine_DB.getAdminBusLists();
+//    ObservableList<AdminBusLine> oblist = FXCollections.observableArrayList(adminBusLineArrayList);
 
 
     @Override

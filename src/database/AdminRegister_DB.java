@@ -6,6 +6,7 @@ import java.io.*;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class AdminRegister_DB {
 
@@ -28,7 +29,7 @@ public class AdminRegister_DB {
                 FileOutputStream output=new FileOutputStream(file);
                 output.write(data);
 
-                adminRegister = new AdminRegister(rs.getInt(1), rs.getString(2),rs.getBlob(3,new FileInputStream(file)),rs.getString(4), rs.getString(5),
+                adminRegister = new AdminRegister(rs.getInt(1), rs.getString(2),IntStream.range(0,data.length).mapToObj(i->data[i]).toArray(Byte[]::new),rs.getString(4), rs.getString(5),
                         rs.getString(6), rs.getString(7),rs.getString(8),rs.getString(9));
 
 
@@ -66,7 +67,9 @@ public class AdminRegister_DB {
                 FileOutputStream output=new FileOutputStream(file);
                 output.write(data);
 
-                AdminRegister register = new AdminRegister(rs.getInt(1), rs.getString(2), data,rs.getString(4),
+              //  IntStream.range(0,data.length).mapToObj(i->data[i]).toArray(Byte[]::new);
+
+                AdminRegister register = new AdminRegister(rs.getInt(1), rs.getString(2), IntStream.range(0,data.length).mapToObj(i->data[i]).toArray(Byte[]::new),rs.getString(4),
                         rs.getString(5), rs.getString(6), rs.getString(7),rs.getString(8),rs.getString(9));
 
                list.add(register);

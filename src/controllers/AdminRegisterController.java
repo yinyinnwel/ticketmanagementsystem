@@ -29,12 +29,19 @@ import javafx.util.Duration;
 import models.AdminRegister;
 import product_out.___Bundle;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.image.BufferedImage;
+import java.awt.image.DataBufferByte;
+import java.awt.image.WritableRaster;
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import java.util.function.IntFunction;
+import java.util.stream.IntStream;
 
 public class AdminRegisterController implements Initializable {
 
@@ -107,7 +114,8 @@ public class AdminRegisterController implements Initializable {
     private Timer tmrTimer;
     double i=0.0;
 
-    String filepath = null;
+    byte[] imgByte;
+  //  String filepath = null;
     FileChooser filechooser = new FileChooser();
     ArrayList<AdminRegister> registerArrayList;
 
@@ -186,6 +194,17 @@ public class AdminRegisterController implements Initializable {
         return flag;
     }
 
+    public byte[] imgByte(String imgPath) throws IOException {
+        imgByte =imgByte(imgPath);
+        File file = new File(imgPath);
+        BufferedImage bufferedImage = ImageIO.read(file);
+
+        WritableRaster writableRaster = bufferedImage.getRaster();
+        DataBufferByte dataBufferByte = (DataBufferByte)writableRaster.getDataBuffer();
+
+        return dataBufferByte.getData();
+
+    }
 
     private void binding(){
 
@@ -298,6 +317,12 @@ public class AdminRegisterController implements Initializable {
         btn_browse.setOnAction(e->{
             File file = filechooser.showOpenDialog(null);
             imageView.setImage(new Image(file.toURI().toString()));
+            try {
+                imgByte = imgByte(file.toURI().toString());
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+          //  System.out.println(imgByte.toString());
         });
 
 
@@ -330,7 +355,8 @@ public class AdminRegisterController implements Initializable {
 
             if(!checkTextfield_Empty(fields)){
                 if(checkNRC() && checkPhoneNo() ){
-                    AdminRegister adminRegister = new AdminRegister(0, userName_txf.getText().toLowerCase(), filepath,
+                    AdminRegister adminRegister = new AdminRegister(0, userName_txf.getText().toLowerCase(),
+                            IntStream.range(0,imgByte.length).mapToObj(i->imgByte[i]).toArray(Byte[]::new),
                                 userEmail_txf.getText(), userNRC_txf.getText(), userPhone_txf.getText(), userCity_txf.getText().toLowerCase(),
                                 userPassword_txf.getText(), group.getSelectedToggle().getUserData().toString());
                     System.out.println(adminRegister);

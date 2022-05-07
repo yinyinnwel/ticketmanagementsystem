@@ -246,12 +246,12 @@
                 </HBox>
                 <HBox prefHeight="50.0" prefWidth="634.0">
                     <children>
-                        <Label fx:id="errorPassword" alignment="CENTER" prefHeight="27.0" prefWidth="347.0" textAlignment="CENTER" textFill="RED">
+                        <Label fx:id="errorPassword" alignment="CENTER" prefHeight="27.0" textAlignment="CENTER" textFill="RED">
                             <font>
                                 <Font size="18.0" />
                             </font>
                             <HBox.margin>
-                                <Insets left="70.0" top="5.0" />
+                                <Insets left="200.0" top="5.0" />
                             </HBox.margin>
                         </Label>
                     </children></HBox>
@@ -367,7 +367,7 @@
             <padding>
                 <Insets top="2.0" />
             </padding></VBox>
-        <ScrollPane fitToHeight="true" fitToWidth="true" layoutX="642.0" layoutY="66.0" prefHeight="827.0" prefWidth="569.0" stylesheets="@../css/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="650.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="66.0">
+        <ScrollPane fitToHeight="true" fitToWidth="true" layoutX="642.0" layoutY="66.0" prefHeight="827.0" prefWidth="569.0" stylesheets="@../css/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="650.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="66.0">
             <content>
                 <TableView editable="true" prefHeight="825.0" prefWidth="532.0" stylesheets="@../css/style.css">
                     <columns>
